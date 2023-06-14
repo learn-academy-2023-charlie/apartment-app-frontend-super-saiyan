@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 
 const Footer = () => {
     return (
-        <Navbar
+      <Navbar
         className="me-2"
         color="dark"
         dark

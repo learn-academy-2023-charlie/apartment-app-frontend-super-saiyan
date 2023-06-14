@@ -5,10 +5,9 @@ import '../styling/ApartmentEdit.css';
 
 const ApartmentEdit = () => {
     return (
-        <>
-                <h1 className="tester">Hello World</h1>
-
-        </>
+    <>
+    <h1 className="tester">Hello World</h1>
+    </>
     )
 }
 

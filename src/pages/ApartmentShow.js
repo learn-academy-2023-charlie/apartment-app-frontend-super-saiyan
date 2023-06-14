@@ -4,10 +4,9 @@ import '../styling/ApartmentShow.css';
 
 const ApartmentShow = () => {
     return (
-        <>
-                <h1 className="tester">Hello World</h1>
-
-        </>
+    <>
+    <h1 className="tester">Hello World</h1>
+    </>
     )
 }
 

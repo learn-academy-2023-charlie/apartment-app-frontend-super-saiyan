@@ -4,9 +4,9 @@ import '../styling/NotFound.css';
 
 const NotFound = () => {
     return (
-        <>
-                                <h1 className="tester"> 404 Hello World</h1>
-        </>
+    <>
+    <h1 className="tester">Hello World</h1>
+    </>
     )
 }
 

@@ -3,12 +3,12 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 
 const Header = () => {
     return (
-        <Navbar className="me" 
+    <Navbar className="me" 
     color="secondary" 
     dark
     fixed="top"
     >
-      <NavbarBrand href="/"> Home
+    <NavbarBrand href="/"> Home
        </NavbarBrand>
     </Navbar>
     )
