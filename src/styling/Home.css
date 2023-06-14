@@ -1,0 +1,10 @@
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.tester{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10em;
+}
