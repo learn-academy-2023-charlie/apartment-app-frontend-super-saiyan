@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
-        <Route path="/ApartmentShow" element={<ApartmentShow apartments={apartments}/>} />
+        <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments}/>} />
         <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         {currentUser && (
