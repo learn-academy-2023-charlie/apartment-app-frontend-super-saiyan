@@ -19,22 +19,33 @@ import UserMock from './UserMock';
 
 
 function App() {
-  const [apartment, setApartment] = useState(AptMock);
+  const [apartments, setApartments] = useState(AptMock);
   const [user, setUser] = useState(UserMock);
+  const [currentUser, setCurrentUser] = useState(UserMock[0]);
+
   return (
     <div>
     <Header />
-<Routes>
-  <Route path="/" element={<Home />} /> 
-  <Route path="/ApartmentIndex" element={<ApartmentIndex />} />
-  <Route path="/ApartmentShow" element={<ApartmentShow />} />
-  <Route path="/SignIn" element={<SignIn />} />
-  <Route path="/SignUp" element={<SignUp />} />
-  <Route path="/ApartmentProtectedIndex" element={<ApartmentProtectedIndex />} />
-  <Route path="/ApartmentNew" element={<ApartmentNew />} />
-  <Route path="/ApartmentEdit" element={<ApartmentEdit />} />
-  <Route path="*" element={<NotFound />} />
-</Routes>
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
+        <Route path="/ApartmentShow" element={<ApartmentShow apartments={apartments}/>} />
+        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
+        {currentUser && (
+        <Route path="/API" 
+              element={
+              <ApartmentProtectedIndex 
+              currentUser = {currentUser}
+              apartments={apartments}
+              />
+              } 
+            />
+          )}
+        <Route path="/ApartmentNew" element={<ApartmentNew />} />
+        <Route path="/ApartmentEdit" element={<ApartmentEdit />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     <Footer />
     </div>
   );

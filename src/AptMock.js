@@ -1,5 +1,6 @@
 let apartments = [
     {
+        id:1,
         street:"Andros Pl",
         unit:"1",
         city:"San Diego",
@@ -9,9 +10,11 @@ let apartments = [
         bedrooms:2,
         bathrooms:2,
         pets:"yes",
-        image:"../assets/images/apartment.jpeg"
+        image:"../assets/images/apartment.jpeg",
+        user_id: 1,
 },
 {
+        id:2,
         street:"Andros Pl",
         unit:"1",
         city:"San Diego",
@@ -21,9 +24,12 @@ let apartments = [
         bedrooms:2,
         bathrooms:2,
         pets:"yes",
-        image:"../assets/images/apartment.jpeg"
+        image:"../assets/images/apartment.jpeg",
+        user_id: 2,
+
 },
 {
+        id:3,
         street:"Andros Pl",
         unit:"1",
         city:"San Diego",
@@ -33,7 +39,9 @@ let apartments = [
         bedrooms:2,
         bathrooms:2,
         pets:"yes",
-        image:"../assets/images/apartment.jpeg"
+        image:"../assets/images/apartment.jpeg",
+        user_id: 3,
+
 },
 ]
 
