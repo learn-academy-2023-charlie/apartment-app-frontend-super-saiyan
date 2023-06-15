@@ -45,6 +45,7 @@ body {
     color: white;
     padding: 8px;
     border-radius: 20%;
+    transition: smooth;
   }
   
   .carousel-control-prev-icon {

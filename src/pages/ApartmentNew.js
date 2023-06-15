@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import "../styling/ApartmentNew.css"
 
 const ApartmentNew = ({ createApartment }) => {
   const [newApartment, setNewApartment] = useState({
@@ -29,7 +30,7 @@ const ApartmentNew = ({ createApartment }) => {
 
   return (
     <>
-      <Form>
+      <Form id="formstyle">
         <FormGroup>
           <Label for="street">Street</Label>
           <Input

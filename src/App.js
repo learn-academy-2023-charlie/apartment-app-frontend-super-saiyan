@@ -23,6 +23,10 @@ function App() {
   const [user, setUser] = useState(UserMock);
   const [currentUser, setCurrentUser] = useState(UserMock[0]);
 
+  const createApartment = (apartment) => {
+    console.log(apartment)
+  }
+
   return (
     <div>
     <Header />
@@ -42,7 +46,7 @@ function App() {
               } 
             />
           )}
-        <Route path="/ApartmentNew" element={<ApartmentNew />} />
+         <Route path="/ApartmentNew" element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path="/Apartment/:id/Edit" element={<ApartmentEdit apartments={apartments} setApartments={setApartments}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
