@@ -3,16 +3,27 @@ import React from 'react';
 import '../styling/ApartmentDelete.css'
 
 const ApartmentDelete = ({ id }) => {
-  // Implement the delete functionality here
   const handleDelete = () => {
-    // Delete logic goes here
-  };
+    fetch(`http://localhost:3000/apartments/${id}`,{
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then((response) => response.json())
+    .then((payload) => {
+      console.log("Apartment deleted successfully");
+    })
+    .catch((errors) => {
+      console.log("Delete errors:", errors)
+    })
+  }
 
-  return (
+  return(
     <button className="dltBtn" onClick={handleDelete}>
       <span>Delete</span>
     </button>
-  );
-};
+  )
+}
 
 export default ApartmentDelete;

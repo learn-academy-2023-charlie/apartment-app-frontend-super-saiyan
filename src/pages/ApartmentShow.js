@@ -26,6 +26,9 @@ const ApartmentShow = ({ apartments }) => {
           <CardLink tag={Link} to="/ApartmentIndex">Back to Home</CardLink>
           <CardLink tag={Link} to={`/ApartmentShow/${currentApt.id}`}>Add to Favorites</CardLink>        </CardBody>
       </Card>
+      <NavLink to="/catindex">
+        <Button>Delete Apartment Profile</Button>
+      </NavLink>
     </>
   );
 };

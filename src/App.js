@@ -12,6 +12,7 @@ import ApartmentProtectedIndex from './pages/ApartmentProtectedIndex'
 import NotFound from './pages/NotFound';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
+import ApartmentDelete from './pages/ApartmentDelete'
 
 // import AptMock from './AptMock';
 // import UserMock from './UserMock';
@@ -113,6 +114,18 @@ const App = () => {
       .catch(error => console.log("login errors: ", error))
   }
 
+  deleteApartment = (id) => {
+    fetch(`http://localhost:3000/apartments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then((payload) => readApartments())
+      .catch((errors) => console.log("delete errors:", errors))
+  }
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("token")
     if(loggedInUser) {
@@ -144,6 +157,7 @@ const App = () => {
          <Route path="/ApartmentNew" element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path="/ApartmentEdit" element={<ApartmentEdit apartments={apartments} setApartments={setApartments}/>} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/ApartmentShow/:id"element={<ApartmentShow apartment={apartment} deleteApartment={deleteApartment} />}/>
       </Routes>
     <Footer />
     </div>
