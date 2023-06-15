@@ -26,31 +26,3 @@ import AptMock from '../AptMock';
 //       screen.logTestingPlaygroundURL()
 //     });
 //   });
-
-  // it('changes slides when next and previous buttons are clicked', () => {
-  //   render(
-  //     <BrowserRouter>
-  //       <ApartmentProtectedIndex apartments={AptMock} />
-  //     </BrowserRouter>
-  //   );
-
-    // Initially, the first slide should be active
-    // const firstSlide = screen.getByTestId('slides');
-    // expect(firstSlide).toHaveClass('active');
-
-    // // Click the next button
-    // const nextButton = screen.getByText('Next');
-    // fireEvent.click(nextButton);
-
-    // // The second slide should now be active
-    // const secondSlide = screen.getByTestId('carousel-slide-1');
-    // expect(secondSlide).toHaveClass('active');
-
-    // // Click the previous button
-    // const previousButton = screen.getAllByText('Previous');
-    // fireEvent.click(previousButton);
-
-    // // The first slide should be active again
-    // expect(firstSlide).toHaveClass('active');
-  // });
-

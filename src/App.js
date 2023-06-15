@@ -13,8 +13,8 @@ import NotFound from './pages/NotFound';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 
-import AptMock from './AptMock';
-import UserMock from './UserMock';
+// import AptMock from './AptMock';
+// import UserMock from './UserMock';
 
 
 
