@@ -10,8 +10,8 @@ import ApartmentNew from './pages/ApartmentNew';
 import ApartmentEdit from './pages/ApartmentEdit';
 import ApartmentProtectedIndex from './pages/ApartmentProtectedIndex'
 import NotFound from './pages/NotFound';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
 
 import AptMock from './AptMock';
 import UserMock from './UserMock';
@@ -34,7 +34,7 @@ function App() {
         <Route path="/" element={<Home />} /> 
         <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
         <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments}/>} />
-        <Route path="/SignIn" element={<SignIn />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         {currentUser && (
         <Route path="/API" 

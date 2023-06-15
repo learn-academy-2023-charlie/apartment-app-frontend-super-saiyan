@@ -1,12 +1,12 @@
 import React from 'react';
 
-import '../styling/SignIn.css';
+import '../styling/LogIn.css';
 
-const SignIn = () => {
+const SignUp = () => {
     return (
     <>
     <h1 className="tester">Hello World</h1>
     </>
     )
 }
-export default SignIn;
+export default SignUp;
