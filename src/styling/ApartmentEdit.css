@@ -1,6 +1,15 @@
-.tester{
+element.style {
+}
+#formstyle {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    margin-top: 10em;
-    }
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    overflow: scroll;
+    height: 80vh;
+    padding-top: 12%;
+    align-content: space-between;
+}
