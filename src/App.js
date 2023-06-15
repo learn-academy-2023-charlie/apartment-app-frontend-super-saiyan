@@ -31,7 +31,8 @@ function App() {
     <div>
     <Header />
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home apartments={apartments} />
+} /> 
         <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
         <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments}/>} />
         <Route path="/login" element={<LogIn />} />

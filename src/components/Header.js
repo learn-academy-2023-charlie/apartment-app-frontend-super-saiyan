@@ -10,8 +10,12 @@ const Header = () => {
             dark
             fixed="top"
         >
+            <div className="Links">
             <NavbarBrand href="/"> Home
             </NavbarBrand>
+            <NavbarBrand href="/ApartmentIndex">index
+            </NavbarBrand>
+                </div>
                 <Nav className="nav">
                     {current_user && (
                         <>
