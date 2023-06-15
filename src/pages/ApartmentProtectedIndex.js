@@ -1,11 +1,39 @@
 import React, { useState } from 'react';
-import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption, Button } from 'reactstrap';
+import { Carousel, CarouselItem, CarouselControl, CarouselIndicators } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { useParams, NavLink } from 'react-router-dom';
+import ApartmentDelete from './ApartmentDelete';
 
-import AptMock from '../AptMock';
 import '../styling/ApartmentProtectedIndex.css';
 
+const ApartmentCard = ({ apartment, id }) => (
+  <div className="apartment-card">
+    <h5 className="apt-st">{apartment.street}</h5>
+    <p className="apt-loctn">{apartment.city}, {apartment.state}</p>
+    <p className="apt-details">Square Footage: {apartment.square_footage} sq. ft.</p>
+    <p className="apt-details">Price: {apartment.price}</p>
+    <p className="apt-details">Bedrooms: {apartment.bedrooms}</p>
+    <p className="apt-details">Bathrooms: {apartment.bathrooms}</p>
+    <p className="apt-details">Pets: {apartment.pets}</p>
+    <img className="apt-img" src={process.env.PUBLIC_URL + apartment.image} alt="Apartment" />
+    <div className="edit-btn-container">
+      <NavLink className="edtBtn" to={`/Apartment/${id}/Edit`}>
+        <span>Edit</span>
+      </NavLink>
+    </div>
+    <div className="dlt-btn-container">
+      <ApartmentDelete id={id} />
+    </div>
+  </div>
+);
+
+ApartmentCard.propTypes = {
+  apartment: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+};
+
 const ApartmentProtectedIndex = ({ apartments }) => {
+  const { id } = useParams();
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -28,16 +56,7 @@ const ApartmentProtectedIndex = ({ apartments }) => {
       onExited={() => setAnimating(false)}
       active={index === activeIndex}
     >
-      <div className="apartment-card">
-        <h5 className="apt-st">{apartment.street}</h5>
-        <p className="apt-loctn">{apartment.city}, {apartment.state}</p>
-        <p className="apt-details">Square Footage: {apartment.square_footage} sq. ft.</p>
-        <p className="apt-details">Price: {apartment.price}</p>
-        <p className="apt-details">Bedrooms: {apartment.bedrooms}</p>
-        <p className="apt-details">Bathrooms: {apartment.bathrooms}</p>
-        <p className="apt-details">Pets: {apartment.pets}</p>
-        <img className="apt-img" src={process.env.PUBLIC_URL + apartment.image}  alt="Apartment" />
-      </div>
+      <ApartmentCard apartment={apartment} id={String(apartment.id)} />
     </CarouselItem>
   ));
 

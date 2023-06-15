@@ -1,5 +1,15 @@
-
-.apartment-carousel {
+body {
+    background: rgb(247, 246, 246);
+  }
+  
+  .apartment-card {
+    background: white;
+    border: 1px solid black;
+    height: 500px;
+    width: 350px;
+  }
+  
+  .apartment-carousel {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -28,8 +38,6 @@
     object-fit: cover;
     margin-top: 10px;
   }
-
-  
   
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
@@ -46,4 +54,17 @@
   .carousel-control-next-icon {
     margin-left: 40em;
   }
+  .edit-btn-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
   
+  }
+  .edtBtn{
+    text-decoration: none;
+    color: blue;
+    cursor: pointer;
+  }
+
+   
+ 

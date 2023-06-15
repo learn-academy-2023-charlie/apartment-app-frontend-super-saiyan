@@ -43,7 +43,7 @@ function App() {
             />
           )}
         <Route path="/ApartmentNew" element={<ApartmentNew />} />
-        <Route path="/ApartmentEdit" element={<ApartmentEdit />} />
+        <Route path="/Apartment/:id/Edit" element={<ApartmentEdit apartments={apartments} setApartments={setApartments}/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     <Footer />

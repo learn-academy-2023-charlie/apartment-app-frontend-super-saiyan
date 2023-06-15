@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, CardTitle, CardSubtitle, CardBody, CardText, CardLink } from 'reactstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import '../styling/ApartmentShow.css';
-import AptMock from "../AptMock";
 
 const ApartmentShow = ({ apartments }) => {
   const { id } = useParams();
@@ -24,9 +23,8 @@ const ApartmentShow = ({ apartments }) => {
           <CardText>Bedrooms: {currentApt.bedrooms}</CardText>
           <CardText>Bathrooms: {currentApt.bathrooms}</CardText>
           <CardText>Pets: {currentApt.pets}</CardText>
-          <CardLink href="{/ApartmentIndex}">Back to Home</CardLink>
-          <CardLink href="{`/ApartmentShow/${currentApt.id}`}">Add to Favorites</CardLink>
-        </CardBody>
+          <CardLink tag={Link} to="/ApartmentIndex">Back to Home</CardLink>
+          <CardLink tag={Link} to={`/ApartmentShow/${currentApt.id}`}>Add to Favorites</CardLink>        </CardBody>
       </Card>
     </>
   );
