@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,25 +18,119 @@ import UserMock from './UserMock';
 
 
 
-function App() {
-  const [apartments, setApartments] = useState(AptMock);
-  const [user, setUser] = useState(UserMock);
-  const [currentUser, setCurrentUser] = useState(UserMock[0]);
+const App = () => {
+  const [apartments, setApartments] = useState([]);
+  // const [user, setUser] = useState(UserMock);
+  const [currentUser, setCurrentUser] = useState(null);
+ 
+  const url = "http://localhost:3000"
 
+  useEffect(() => {
+    readApts()
+  }, [])
+
+  // apartment fetches
+  const readApts = () => {
+    fetch(`${url}/apartments`)
+      .then(response => response.json())
+      .then(payload => {
+        setApartments(payload)
+      })
+      .catch((error) => console.log(error))
+  }
   const createApartment = (apartment) => {
-    console.log(apartment)
+    fetch(`${url}/apartments`, {
+      body: JSON.stringify(apartment),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+      .then((response) => response.json())
+      .then((payload) => readApts())
+      .catch((errors) => console.log("Apartment create errors:", errors))
   }
 
+   // authentication function
+   const login = (userInfo) => {
+    fetch(`${url}/login`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+      .then(response => {
+        if(!response.ok) {
+          throw Error(response.statusText)
+        }
+        // store the token
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then(payload => {
+        setCurrentUser(payload)
+      })
+      .catch(error => console.log("login errors: ", error))
+  } 
+
+  const logout = () => {
+    fetch(`${url}/logout`, {
+      headers: {
+        "Content-Type": 'application/json',
+        "Authorization": localStorage.getItem("token") //retrieve the token 
+      },
+      method: 'DELETE'
+    })
+      .then(payload => {
+        localStorage.removeItem("token")  // remove the token
+        setCurrentUser(null)
+      })
+      .catch(error => console.log("log out errors: ", error))
+  }
+
+  const signup = (userInfo) => {
+    fetch(`${url}/signup`, {
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      },
+      method: 'POST'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+        // store the token
+        localStorage.setItem("token", response.headers.get("Authorization"))
+        return response.json()
+      })
+      .then(payload => {
+        setCurrentUser(payload)
+      })
+      .catch(error => console.log("login errors: ", error))
+  }
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("token")
+    if(loggedInUser) {
+      setCurrentUser(loggedInUser)
+    }
+    readApts()
+  }, [])
+  
   return (
     <div>
-    <Header />
+    <Header currentUser={currentUser} logout={logout}/>
       <Routes>
         <Route path="/" element={<Home apartments={apartments} />
 } /> 
         <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
         <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments}/>} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/login" element={<LogIn login={login}/>} />
+        <Route path="/SignUp" element={<SignUp signup={signup}/>} />
         {currentUser && (
         <Route path="/API" 
               element={

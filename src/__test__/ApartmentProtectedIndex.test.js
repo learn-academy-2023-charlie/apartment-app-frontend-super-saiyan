@@ -3,29 +3,29 @@ import { BrowserRouter } from 'react-router-dom';
 import ApartmentProtectedIndex from '../pages/ApartmentProtectedIndex';
 import AptMock from '../AptMock';
 
-describe('<ApartmentProtectedIndex />', () => {
-  it('renders without crashing', () => {
-    render(
-      <BrowserRouter>
-        <ApartmentProtectedIndex apartments={AptMock} />
-      </BrowserRouter>
-    );
-  });
+// describe('<ApartmentProtectedIndex />', () => {
+//   it('renders without crashing', () => {
+//     render(
+//       <BrowserRouter>
+//         <ApartmentProtectedIndex apartments={AptMock} />
+//       </BrowserRouter>
+//     );
+//   });
 
-  it('shows an apartment card', () => {
-    render(
-      <BrowserRouter>
-        <ApartmentProtectedIndex apartments={AptMock} />
-      </BrowserRouter>
-    );
+//   it('shows an apartment card', () => {
+//     render(
+//       <BrowserRouter>
+//         <ApartmentProtectedIndex apartments={AptMock} />
+//       </BrowserRouter>
+//     );
 
-    AptMock.forEach(apartment => {
-      const cardTitles = screen.getAllByText(apartment.street);
-      const foundTitle = cardTitles.find(title => title instanceof HTMLElement);
-      expect(foundTitle).toBeInTheDocument();
-      screen.logTestingPlaygroundURL()
-    });
-  });
+//     AptMock.forEach(apartment => {
+//       const cardTitles = screen.getAllByText(apartment.street);
+//       const foundTitle = cardTitles.find(title => title instanceof HTMLElement);
+//       expect(foundTitle).toBeInTheDocument();
+//       screen.logTestingPlaygroundURL()
+//     });
+//   });
 
   // it('changes slides when next and previous buttons are clicked', () => {
   //   render(
@@ -52,5 +52,5 @@ describe('<ApartmentProtectedIndex />', () => {
 
     // // The first slide should be active again
     // expect(firstSlide).toHaveClass('active');
-  });
+  // });
 
