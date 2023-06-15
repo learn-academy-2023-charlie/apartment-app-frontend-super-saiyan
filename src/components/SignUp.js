@@ -1,4 +1,4 @@
-// import
+import "../styling/SignUp.css"
 import React, { useRef } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -22,7 +22,7 @@ const SignUp = ({ signup }) => {
 
   return(
     <>
-      <div>
+      <div id="signup">
         <form ref={formRef} onSubmit={handleSubmit}>
           Email: <input type="email" name="email" placeholder="email" />
           <br />

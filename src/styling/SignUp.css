@@ -1,6 +1,8 @@
-.tester{
-    display: flex;
+#signup{
     justify-content: center;
     align-items: center;
-    margin-top: 10em;
-    }
+    padding-top: 20% !important ;
+    display:flex;
+    flex-direction: column;
+
+} 

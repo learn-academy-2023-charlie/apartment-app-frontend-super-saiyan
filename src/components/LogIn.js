@@ -1,4 +1,4 @@
-// import
+import "../styling/LogIn.css"
 import React, { useRef } from "react"
 import { useNavigate } from 'react-router-dom'
 // declare functional component
@@ -21,18 +21,18 @@ const LogIn = ({ login }) => {
   }
 
   return(
-    <div>
-      <form ref={formRef} onSubmit={handleSubmit}>
-        Email: <input type="email" name='email' placeholder="email" />
-        <br/>
-        Password: <input type="password" name='password' placeholder="password" />
-        <br/>
-        <input type='submit' value="Login" />
-      </form>
-      <br />
-      <div>Not registered yet, <a href="/signup">Signup</a> </div>
+    <div id="login" >
+        <h1>Sign In</h1>
+            <form ref={formRef} onSubmit={handleSubmit} >
+                Email: <input type="email" name='email' placeholder="email" />
+                <br/>
+                Password: <input type="password" name='password' placeholder="password" />
+                <br/>
+                <input type='submit' value="Login" />
+            </form>
+            <br />
+            <div>Not registered yet, <a href="/signup">Signup</a> </div>
     </div>
   )
 }
-// export
-export default LogIn
+export default LogIn;
