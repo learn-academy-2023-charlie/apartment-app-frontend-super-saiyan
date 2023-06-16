@@ -41,16 +41,16 @@ const App = () => {
   }
   const createApartment = (apartment) => {
     fetch(`${url}/apartments`, {
-      body: JSON.stringify(apartment),
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: "POST"
+      // ...
     })
       .then((response) => response.json())
-      .then((payload) => readApts())
-      .catch((errors) => console.log("Apartment create errors:", errors))
-  }
+      .then((payload) => {
+        readApts(); // Update the list of apartments
+        // ... other logic
+      })
+      .catch((errors) => console.log("Apartment create errors:", errors));
+  };
+  
 
    // authentication function
    const login = (userInfo) => {
@@ -114,7 +114,7 @@ const App = () => {
       .catch(error => console.log("login errors: ", error))
   }
 
-  deleteApartment = (id) => {
+  const deleteApartment = (id) => {
     fetch(`http://localhost:3000/apartments/${id}`, {
       headers: {
         "Content-Type": "application/json"
@@ -122,7 +122,7 @@ const App = () => {
       method: "DELETE"
     })
       .then((response) => response.json())
-      .then((payload) => readApartments())
+      .then((payload) => readApts())
       .catch((errors) => console.log("delete errors:", errors))
   }
 
@@ -157,7 +157,7 @@ const App = () => {
          <Route path="/ApartmentNew" element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path="/ApartmentEdit" element={<ApartmentEdit apartments={apartments} setApartments={setApartments}/>} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/ApartmentShow/:id"element={<ApartmentShow apartment={apartment} deleteApartment={deleteApartment} />}/>
+        <Route path="/ApartmentShow/:id"element={<ApartmentShow apartments={apartments} deleteApartment={deleteApartment} />}/>
       </Routes>
     <Footer />
     </div>

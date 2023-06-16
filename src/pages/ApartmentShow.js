@@ -1,12 +1,21 @@
 import React from 'react';
-import { Card, CardTitle, CardSubtitle, CardBody, CardText, CardLink } from 'reactstrap';
-import { useParams, Link } from 'react-router-dom';
+import { Card, CardTitle, CardSubtitle, CardBody, CardText, CardLink, Button } from 'reactstrap';
+import { useParams, Link, NavLink } from 'react-router-dom';
 import '../styling/ApartmentShow.css';
+import ApartmentDelete from './ApartmentDelete';
 
-const ApartmentShow = ({ apartments }) => {
+const ApartmentShow = ({ apartments, deleteApartment }) => {
   const { id } = useParams();
   let currentApt = apartments?.find((apt) => apt.id === +id);
-  
+
+  const handleDelete = () => {
+    deleteApartment(currentApt.id);
+  };
+
+  if (!currentApt) {
+    return <div>Loading...</div>; // Add loading state or handle the case when currentApt is undefined
+  }
+
   return (
     <>
       <Card key={currentApt.id} className="apartment-card">
@@ -23,17 +32,20 @@ const ApartmentShow = ({ apartments }) => {
           <CardText>Bedrooms: {currentApt.bedrooms}</CardText>
           <CardText>Bathrooms: {currentApt.bathrooms}</CardText>
           <CardText>Pets: {currentApt.pets}</CardText>
-          <CardLink tag={Link} to="/ApartmentIndex">Back to Home</CardLink>
-          <CardLink tag={Link} to={`/ApartmentShow/${currentApt.id}`}>Add to Favorites</CardLink>        </CardBody>
+          <CardLink tag={Link} to="/ApartmentIndex">
+            Back to Home
+          </CardLink>
+          <CardLink tag={Link} to={`/ApartmentShow/${currentApt.id}`}>
+            Add to Favorites
+          </CardLink>
+        </CardBody>
       </Card>
-      <NavLink to="/catindex">
+      <NavLink to="/ApartmentIndex">
         <Button>Delete Apartment Profile</Button>
       </NavLink>
+      <ApartmentDelete id={currentApt.id} />
     </>
   );
 };
-
-
-
 
 export default ApartmentShow;
