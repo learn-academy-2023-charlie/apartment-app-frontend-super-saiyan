@@ -46,7 +46,7 @@ const App = (props) => {
     })
       .then((response) => response.json())
       .then((payload) => {
-        readApts(); // Update the list of apartments
+        readApts(payload); // Update the list of apartments
         // ... other logic
       })
       .catch((errors) => console.log("Apartment create errors:", errors));
