@@ -1,11 +1,10 @@
 import React from 'react';
 import { Card, CardTitle, CardSubtitle, CardBody, CardText, CardLink } from 'reactstrap';
-import AptMock from '../AptMock';
 import '../styling/ApartmentIndex.css';
-const ApartmentIndex = () => {
+const ApartmentIndex = ({apartments}) => {
   return (
     <div className="apartment-index">
-      {AptMock.map(apartment => (
+      {apartments?.map(apartment => (
         <Card key={apartment.id} className="apartment-card">
           <CardBody>
             <CardTitle tag="h5">{apartment.street}</CardTitle>

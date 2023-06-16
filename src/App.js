@@ -40,6 +40,7 @@ const App = (props) => {
       .catch((error) => console.log(error))
   }
   const createApartment = (apartment) => {
+    console.log(apartment);
     fetch(`${url}/apartments`, {
       // ...
     })
