@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, Navbar, NavbarBrand, NavItem, NavLink, } from 'reactstrap';
 import { useNavigate } from "react-router-dom"
+import '../styling/Header.css';
+
 
 const Header = ({currentUser, logout}) => {
     const current_user = true;

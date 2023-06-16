@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import '../styling/ApartmentEdit.css';
 import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 import { useParams, useNavigate } from "react-router-dom"
-
+import "../styling/ApartmentEdit.css"
 
 const ApartmentEdit = ({ apartments, updateApartment }) => {
   const { id } = useParams()
