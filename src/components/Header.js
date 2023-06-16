@@ -18,6 +18,7 @@ const Header = ({currentUser, logout}) => {
             fixed="top"
         >
             <div className="Links">
+              
             <NavbarBrand href="/"> Home🏠
             </NavbarBrand>
             <NavbarBrand href="/ApartmentIndex">Show Listings🔎

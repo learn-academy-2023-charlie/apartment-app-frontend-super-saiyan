@@ -19,7 +19,7 @@ import ApartmentDelete from './pages/ApartmentDelete'
 
 
 
-const App = () => {
+const App = (props) => {
   const [apartments, setApartments] = useState([]);
   // const [user, setUser] = useState(UserMock);
   const [currentUser, setCurrentUser] = useState(null);
@@ -141,7 +141,7 @@ const App = () => {
         <Route path="/" element={<Home apartments={apartments} />
 } /> 
         <Route path="/ApartmentIndex" element={<ApartmentIndex  apartments={apartments}/>} />
-        <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments}/>} />
+        <Route path="/ApartmentShow/:id" element={<ApartmentShow apartments={apartments} deleteApartment={deleteApartment}/>} />
         <Route path="/login" element={<LogIn login={login}/>} />
         <Route path="/SignUp" element={<SignUp signup={signup}/>} />
         {currentUser && (
@@ -157,7 +157,7 @@ const App = () => {
          <Route path="/ApartmentNew" element={<ApartmentNew createApartment={createApartment}/>} />
         <Route path="/ApartmentEdit" element={<ApartmentEdit apartments={apartments} setApartments={setApartments}/>} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/ApartmentShow/:id"element={<ApartmentShow apartments={apartments} deleteApartment={deleteApartment} />}/>
+        <Route path="/ApartmentShow/:id"element={<ApartmentShow apartments={apartments} deleteApartment={deleteApartment} logged_in={props.logged_in} currentUser={props.current_user}  />}/>
       </Routes>
     <Footer />
     </div>

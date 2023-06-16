@@ -31,7 +31,7 @@ const ApartmentNew = ({ createApartment, currentUser}) => {
 
   return (
     <>
-      <Form id="formstyle">
+      <Form className="formstyle">
         <FormGroup>
           <Label for="street">Street</Label>
           <Input
@@ -132,11 +132,10 @@ const ApartmentNew = ({ createApartment, currentUser}) => {
     value={newApartment.image}
   />
 </FormGroup>
-
+</Form>
 <Button color="primary" onClick={handleSubmit} name="submit">
   Submit New Apartment
 </Button>
-</Form>
 </>
 );
 };
