@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav, Navbar, NavbarBrand, NavItem, NavLink, } from 'reactstrap';
 import { useNavigate } from "react-router-dom"
 import '../styling/Header.css';
+import LegendaryLodging from '../assets/LegendaryLodging.png';
 
 
 const Header = ({currentUser, logout}) => {
@@ -18,14 +19,16 @@ const Header = ({currentUser, logout}) => {
             fixed="top"
         >
             <div className="Links">
-              
-            <NavbarBrand href="/"> Home🏠
-            </NavbarBrand>
-            <NavbarBrand href="/ApartmentIndex">Show Listings🔎
-            </NavbarBrand>
-            <NavbarBrand href="/ApartmentNew">New🆕</NavbarBrand>
+              <NavbarBrand>
+              <img src={LegendaryLodging} alt="Legendary Lodging" className="logo" /> 
+              </NavbarBrand>
+              <NavbarBrand href="/"> Home🏠
+              </NavbarBrand>
+              <NavbarBrand href="/ApartmentIndex">Show Listings🔎
+              </NavbarBrand>
+              <NavbarBrand href="/ApartmentNew">New🆕</NavbarBrand>
            
-                </div>
+            </div>
                 <Nav className="nav">
                   {currentUser && (
                    <NavItem>
